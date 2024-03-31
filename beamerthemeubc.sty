@@ -1,0 +1,167 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%																															%
+% This file is based on the sidebar beamer theme and UBC typographic powerPoint template									%
+% 	(https://brand.ubc.ca/guidelines/downloads/print-and-presentation-templates/) 											%
+%																															%
+% Author: Pramoda Jayasinghe (https://github.com/sachijay/)																	%
+%																															%
+% Last updated: 26-Mar-2024																									%
+%																															%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ProvidesPackage{beamerthemeubc}[2024/03/26 Beamer style based on UBC typographic presentation template]
+
+
+\usetheme[right, width=0.15\paperwidth]{PaloAlto}
+\useinnertheme{rectangles}
+
+
+% Import colours
+
+\RequirePackage{ubccolours}
+\RequirePackage{tikz}
+
+
+
+% Import other packages
+
+\usepackage{graphicx}
+
+
+
+% Define colours
+
+\setbeamercolor{normal text}{fg=black}
+
+\setbeamercolor{palette primary}{fg=black}
+\setbeamercolor{palette secondary}{fg=UBCBlue}
+\setbeamercolor{palette tertiary}{fg=PMS2935}
+\setbeamercolor{palette quaternary}{fg=PMS2995}
+
+\setbeamercolor{palette sidebar primary}{fg=white, bg=PMS2935}
+\setbeamercolor{palette sidebar secondary}{fg=white, bg=PMS2995}
+
+\setbeamercolor{title}{parent=palette tertiary}
+\setbeamercolor{subtitle}{parent=palette quaternary}
+\setbeamercolor{author}{parent=palette secondary}
+\setbeamercolor{institute}{parent=palette secondary}
+\setbeamercolor{date}{parent=palette secondary}
+
+\setbeamercolor{section title}{parent=frametitle}
+
+\setbeamercolor{frametitle}{fg=white, bg=UBCBlue}
+\setbeamercolor{sidebar}{fg=white, bg=UBCBlue}
+\setbeamercolor{logo}{fg=white, bg=UBCBlue}
+
+\setbeamercolor{page number in foot}{fg=white}
+\setbeamercolor{date in foot}{fg=white}
+
+\setbeamercolor{itemize item}{fg=PMS2935}
+
+\setbeamercolor{caption name}{fg=PMS2935}
+
+
+% Define fonts
+
+\setbeamerfont{title}{size=\huge}
+\setbeamerfont{subtitle}{size=\Large}
+\setbeamerfont{author}{size=\large}
+
+\setbeamerfont{section title}{parent=subtitle}
+
+\setbeamerfont{page number in foot}{size=\scriptsize}
+\setbeamerfont{date in foot}{size=\tiny}
+
+
+\mode<presentation>
+
+
+
+% Remove navigation symbols 
+
+\setbeamertemplate{navigation symbols}{}
+
+
+
+% Define the title page
+
+\setbeamertemplate{title page}{
+	
+	% Remove extra space when sidebar is used.
+	% From https://github.com/josephwright/beamer/issues/274#issuecomment-1167858075
+	\ifbeamer@plainframe
+	\advance\textwidth\beamer@sidebarwidth
+	\hsize\textwidth
+	\columnwidth\textwidth
+	\fi 
+	
+	{
+		\centering
+		\vfill
+		{\usebeamerfont{title}\usebeamercolor[fg]{title}\inserttitle}\\[1.5em]
+		{\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle}\\
+		\vspace{0.2\textheight}
+		{\usebeamerfont{author}\usebeamercolor[fg]{author}\insertauthor}\\
+		{\usebeamerfont{institute}\usebeamercolor[fg]{institute}\insertinstitute}\\
+		{\usebeamerfont{titlegraphic}\usebeamercolor[fg]{titlegraphic}\inserttitlegraphic}\\
+		\vspace{0.1\textheight}
+		{\usebeamerfont{date}\usebeamercolor[fg]{date}\insertdate}
+		\vfill		
+	}
+	
+	\addtocounter{framenumber}{-1}
+	
+}
+
+
+
+% Define a section page
+
+\setbeamertemplate{section page}{
+	
+	% Remove extra space when sidebar is used.
+	% From https://github.com/josephwright/beamer/issues/274#issuecomment-1167858075
+	\ifbeamer@plainframe
+	\advance\textwidth\beamer@sidebarwidth
+	\hsize\textwidth
+	\columnwidth\textwidth
+	\fi	
+	
+	\vfill
+	\hfill
+	\begin{beamercolorbox}[wd=0.75\paperwidth, ht=4ex, dp=2ex, center, shadow=false, rounded=true]{frametitle}
+		{\usebeamerfont{section title}\usebeamercolor[fg]{section title}\insertsection}
+	\end{beamercolorbox}
+	\hfill\hfill
+	\vfill
+	
+	\begin{tikzpicture}[remember picture, overlay]
+		\node [xshift=-0.075\paperwidth,yshift=-0.08\paperheight] at (current page.north east){
+			\includegraphics[height=0.15\paperheight]{logos/ubc_crest_blue.png}
+		};
+		
+	\end{tikzpicture}
+	
+	\addtocounter{framenumber}{-1}
+	
+}
+
+
+
+% Define frames
+
+\setbeamertemplate{sidebar \beamer@sidebarside}{
+
+	\beamer@tempdim=\beamer@sidebarwidth
+	\advance\beamer@tempdim by -6pt
+	\vspace*{4em}
+	{\usebeamerfont{date in foot}\usebeamercolor[fg]{date in foot} \insertshortdate[width=\beamer@sidebarwidth, center]}\\[2em]
+%	\vspace{10em}
+	\insertverticalnavigation{\beamer@sidebarwidth}
+	\vfill
+	\hspace*{0.4\beamer@sidebarwidth}
+	{\usebeamerfont{page number in foot}\usebeamercolor[fg]{page number in foot} \insertframenumber\,/\,\inserttotalframenumber}
+	\vspace*{2em}
+
+}
+
