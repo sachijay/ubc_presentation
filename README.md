@@ -7,12 +7,11 @@
 1. Copy [`beamerthemeubc.sty`](/beamerthemeubc.sty) and [`ubccolours.sty`](/ubccolours.sty) to the main project directory.
 
 2. Set document class to `beamer` and the theme to `ubc`.
-        ```{=latex}
 
-            \documentclass{beamer}
-            \usetheme{ubc}
-
-        ```
+    ```{=latex}
+        \documentclass{beamer}
+        \usetheme{ubc}
+    ```
 
 3. (Optional) For a working example, see [`ubc_presentation.tex`](/ubc_presentation.tex).
 
