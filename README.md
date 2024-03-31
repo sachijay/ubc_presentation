@@ -9,8 +9,8 @@
 2. Set document class to `beamer` and the theme to `ubc`.
 
     ```{=latex}
-        \documentclass{beamer}
-        \usetheme{ubc}
+    \documentclass{beamer}
+    \usetheme{ubc}
     ```
 
 3. (Optional) For a working example, see [`ubc_presentation.tex`](/ubc_presentation.tex).
