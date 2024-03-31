@@ -4,7 +4,7 @@
 
  ## Install instuctions
 
-1. Copy [`beamerthemeubc.sty`](/beamerthemeubc.sty) and [`ubccolours.sty`](/ubccolours.sty) to the main project directory.
+1. Copy [`beamerthemeubc.sty`](/beamerthemeubc.sty) and [`ubccolours.sty`](/ubccolours.sty) and the [`logos` directory](/logos) to the main project directory.
 
 2. Set document class to `beamer` and the theme to `ubc`.
 
