@@ -6,11 +6,14 @@
 
 1. Copy [`beamerthemeubc.sty`](/beamerthemeubc.sty) and [`ubccolours.sty`](/ubccolours.sty) and the [`logos` directory](/logos) to the main project directory.
 
-2. Set document class to `beamer` and the theme to `ubc`.
+2. Set document class to `beamer`, the theme to `ubc` and add the title graphic and logo.
 
     ```{=latex}
     \documentclass{beamer}
     \usetheme{ubc}
+
+    \titlegraphic{\includegraphics[width=0.7\textwidth]{logos/ubc_logo_full_blue.png}}
+    \logo{\includegraphics[height=0.15\paperheight]{logos/ubc_crest_white.png}}
     ```
 
 3. (Optional) For a working example, see [`ubc_presentation.tex`](/ubc_presentation.tex).
